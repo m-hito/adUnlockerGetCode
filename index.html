@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unlock GitHub Code - Watch Ads (15s)</title>
+    <style> /* Your CSS skills shine */ body{font-family:Arial;text-align:center;background:#222;color:#fff;} #timer{color:red;font-size:2em;} </style>
+</head>
+<body>
+    <h1>Unlock My GitHub Repo</h1>
+    <p>Watch ads for 15s to reveal code link. Helps fund my Roblox projects!</p>
+    <div id="timer">15</div>
+    <p id="ads">Loading ads... (Real: Embed AdSense or buy traffic scripts)</p>
+    <div id="unlock" style="display:none;">
+        <a href="https://github.com/m-hito/MovementSystem">Get Code Now!</a>
+    </div>
+    <script>
+        let time = 15;
+        const timer = document.getElementById('timer');
+        const unlock = document.getElementById('unlock');
+        const ads = document.getElementById('ads');
+        
+        const interval = setInterval(() => {
+            time--;
+            timer.textContent = time;
+            if (time <= 0) {
+                clearInterval(interval);
+                ads.style.display = 'none';
+                unlock.style.display = 'block';
+            }
+        }, 1000);
+        
+        // Add real ads: Google AdSense iframe or BuySellAds script here
+        // For revenue: ads.innerHTML = '<iframe src="your-adsense-unit"></iframe>';
+    </script>
+</body>
+</html>
