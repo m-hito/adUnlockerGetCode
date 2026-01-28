@@ -2,35 +2,86 @@
 <html>
 <head>
     <title>Unlock GitHub Code - Watch Ads (15s)</title>
-    <style> /* Your CSS skills shine */ body{font-family:Arial;text-align:center;background:#222;color:#fff;} #timer{color:red;font-size:2em;} </style>
-    <meta name='admaven-placement' content=Bqjw6qHnG>
+
+    <meta name="admaven-placement" content="Bqjw6qHnG">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #222;
+            color: #fff;
+        }
+        #timer {
+            color: red;
+            font-size: 2em;
+            margin: 15px 0;
+        }
+        #unlock a {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #00ff88;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+        select {
+            padding: 8px;
+            margin: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Unlock My GitHub Repo</h1>
-    <p>Watch ads for 15s to reveal code link. Helps fund my Roblox projects!</p>
+
+    <h1>Unlock My Roblox Systems</h1>
+    <p>Watch ads for 15 seconds to reveal the GitHub code.<br>
+       This helps fund my Roblox dev journey.</p>
+
+    <select id="projectSelect">
+        <option value="movement">MovementSystem (OOP Practice)</option>
+        <option value="npc">NPC Factory</option>
+        <option value="datastore">DataStore (Coming Soon)</option>
+    </select>
+
     <div id="timer">15</div>
-    <p id="ads">Loading ads... (Real: Embed AdSense or buy traffic scripts)</p>
+
     <div id="unlock" style="display:none;">
-        <a href="https://github.com/m-hito/MovementSystem">Get Code Now!</a>
+        <a id="projectLink" href="https://github.com/m-hito/MovementSystem" target="_blank">
+            Get Code →
+        </a>
     </div>
+
     <script>
         let time = 15;
-        const timer = document.getElementById('timer');
-        const unlock = document.getElementById('unlock');
-        const ads = document.getElementById('ads');
-        
+
+        const timer = document.getElementById("timer");
+        const unlock = document.getElementById("unlock");
+        const projectLink = document.getElementById("projectLink");
+        const projectSelect = document.getElementById("projectSelect");
+
+        const projects = {
+            movement: "https://github.com/m-hito/MovementSystem",
+            npc: "https://github.com/m-hito/NPCfactory",
+            datastore: "#"
+        };
+
+        projectSelect.addEventListener("change", () => {
+            projectLink.href = projects[projectSelect.value];
+        });
+
         const interval = setInterval(() => {
             time--;
             timer.textContent = time;
+
             if (time <= 0) {
                 clearInterval(interval);
-                ads.style.display = 'none';
-                unlock.style.display = 'block';
+                timer.style.display = "none";
+                unlock.style.display = "block";
             }
         }, 1000);
-        
-        // Add real ads: Google AdSense iframe or BuySellAds script here
-        // For revenue: ads.innerHTML = '<iframe src="your-adsense-unit"></iframe>';
     </script>
+
 </body>
 </html>
